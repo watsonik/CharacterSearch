@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint",
-    "run": "npm index search -- --name='Rick Sanchez' --status=Alive --gender=Male",
+    "search": "node index search",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "mkdir data"
   },

@@ -1,45 +1,50 @@
 const yargs = require('yargs');
 const {search} = require('./services/characterService');
 
-const arrayOfValidParams = ["name", "id", "status", "species", "gender"];
+const arrayOfValidParams = ['name', 'id', 'status', 'species', 'gender'];
 
 yargs.command({
-    command: 'search',
-    describe: 'searching',
-    builder: {
-        name: {
-            type: 'string',
-            demandOption: false,
-            description: 'name',
-        },
-        id: {
-            type: 'number',
-            demandOption: false,
-            description: 'id',
-        },
-        status: {
-            type: 'string',
-            demandOption: false,
-            description: 'status',
-        },
-        species: {
-            type: 'string',
-            demandOption: false,
-            description: 'species',
-        },
-        gender: {
-            type: 'string',
-            demandOption: false,
-            description: 'gender',
-        },
+  command: 'search',
+  describe: 'searching',
+  builder: {
+    name: {
+      type: 'string',
+      demandOption: false,
+      description: 'name',
     },
-    handler(args) {
-        search(getParams(args));
+    id: {
+      type: 'number',
+      demandOption: false,
+      description: 'id',
     },
+    status: {
+      type: 'string',
+      demandOption: false,
+      description: 'status',
+    },
+    species: {
+      type: 'string',
+      demandOption: false,
+      description: 'species',
+    },
+    gender: {
+      type: 'string',
+      demandOption: false,
+      description: 'gender',
+    },
+  },
+  handler(args) {
+    search(getParams(args));
+  },
 })
-    .demandCommand(1, 'You cannot run without any command')
-    .argv;
+  .demandCommand(1, 'You cannot run without any command')
+  .argv;
 
+/**
+ *
+ * @param args args provided in command line
+ * @returns {[string, string][]}
+ */
 function getParams(args) {
-    return Object.entries(args).filter((param) => arrayOfValidParams.includes(param[0]));
-};
+  return Object.entries(args).filter((param) => arrayOfValidParams.includes(param[0]));
+}
