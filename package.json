@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/watsonik/CharacterSearch#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
